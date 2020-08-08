@@ -6,13 +6,13 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'SignUp',
-    component: () => import('../pages/SignUp.vue')
+    name: 'SignIn',
+    component: () => import('../pages/SignIn.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../pages/About.vue')
+    path: '/sign-up',
+    name: 'SignUp',
+    component: () => import('../pages/SignUp.vue')
   }
 ]
 

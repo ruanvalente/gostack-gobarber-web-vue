@@ -1,23 +1,29 @@
 <template>
   <div class="container">
-    <div class="background">
-    </div>
+
     <div class="content">
       <img src="@/assets/logo.svg" alt="GoBarber Logo">
 
-      <form>
-        <InputApp name="user" type="text" placeholder="Nome"/>
+      <form @submit.prevent="doSignIn">
+        <h1>Faça o seu logon</h1>
+
         <InputApp name="email" type="email" placeholder="E-mail"/>
-        <InputApp name="password" type="password" placeholder="Senha"/>
+        <InputApp name="password" type="password" placeholder="Password"/>
 
-        <ButtonApp title="Cadastrar"></ButtonApp>
+        <ButtonApp title="Entrar"></ButtonApp>
 
-        <a @click.prevent="goBack" href="/">
-          <arrow-left-icon size="1.5x" class="custom-class"></arrow-left-icon>
-          Voltar para o login
-        </a>
+        <a href="#">Esqueci minha senha</a>
       </form>
+
+      <a href="#">
+        <log-in-icon size="1.5x" />
+        Criar conta
+      </a>
     </div>
+
+    <div class="background">
+    </div>
+
   </div>
 </template>
 
@@ -25,18 +31,18 @@
 import ButtonApp from '@/components/ButtonApp.vue'
 import InputApp from '@/components/InputApp.vue'
 
-import { ArrowLeftIcon } from 'vue-feather-icons'
+import { LogInIcon } from 'vue-feather-icons'
 
 export default {
-  name: 'SignUp',
+  name: 'SignIn',
   components: {
     ButtonApp,
     InputApp,
-    ArrowLeftIcon
+    LogInIcon
   },
   methods: {
-    goBack () {
-      window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
+    doSignIn () {
+      this.$router.push('/sign-up')
     }
   }
 }
@@ -67,11 +73,11 @@ export default {
 
     text-align: center;
 
+    h1 {
+      margin-bottom: 24px;
+    }
+
     a {
-      display: flex;
-
-      place-content: center;
-
       color: #F4EDE8;
 
       text-decoration: none;
@@ -83,14 +89,33 @@ export default {
       }
     }
   }
-  svg {
-    margin-right: 16px;
+
+  > a {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    color: #FF9000;
+
+    text-decoration: none;
+
+    transition: color 0.2s;
+
+    &:hover {
+      color: #e98400;
+    }
+
+    svg {
+      margin-right: 16px;
+    }
   }
 }
+
 .background {
   flex: 1;
 
-  background: url('../assets/sign-up-background.png') no-repeat center;
+  background: url('../assets/sign-in-background.png') no-repeat center;
   background-size: cover;
 }
 
