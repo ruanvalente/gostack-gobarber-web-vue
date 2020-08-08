@@ -4,9 +4,7 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-
+<script>
 export default {
   name: 'ButtonApp',
   props: {
@@ -21,10 +19,10 @@ button {
   padding: 16px 0;
   margin: 24px 0;
 
-  background: #FF9000;
-  color: #312E38;
+  background: #ff9000;
+  color: #312e38;
 
-  border: 2px solid #FF9000;
+  border: 2px solid #ff9000;
   border-radius: 10px;
 
   font-weight: 500;
@@ -32,7 +30,7 @@ button {
   transition: background 0.2s;
 
   &:hover {
-     background: #e98400;
+    background: #e98400;
   }
 }
 </style>
