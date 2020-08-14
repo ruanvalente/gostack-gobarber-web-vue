@@ -7,7 +7,7 @@
 
       <form>
         <InputApp name="user" type="text" placeholder="Nome"/>
-        <InputApp name="email" type="email" placeholder="E-mail"/>
+        <InputApp name="email" type="text" placeholder="E-mail"/>
         <InputApp name="password" type="password" placeholder="Senha"/>
 
         <ButtonApp title="Cadastrar"></ButtonApp>
