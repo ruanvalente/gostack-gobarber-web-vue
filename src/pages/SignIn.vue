@@ -1,14 +1,20 @@
 <template>
   <div class="container">
-
     <div class="content">
-      <img src="@/assets/logo.svg" alt="GoBarber Logo">
+      <img src="@/assets/logo.svg" alt="GoBarber Logo" />
 
       <form @submit.prevent="doSignIn">
         <h1>Faça o seu logon</h1>
 
-        <InputApp name="email" type="email" placeholder="E-mail"/>
-        <InputApp name="password" type="password" placeholder="Password"/>
+        <InputApp
+          name="email"
+          type="text"
+          placeholder="E-mail" />
+
+        <InputApp
+          name="password"
+          type="password"
+          placeholder="Password" />
 
         <ButtonApp title="Entrar"></ButtonApp>
 
@@ -16,14 +22,11 @@
       </form>
 
       <a href="#">
-        <log-in-icon size="1.5x" />
-        Criar conta
+        <log-in-icon size="1.5x" />Criar conta
       </a>
     </div>
 
-    <div class="background">
-    </div>
-
+    <div class="background"></div>
   </div>
 </template>
 
@@ -49,7 +52,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .container {
   height: 100vh;
 
@@ -78,7 +80,7 @@ export default {
     }
 
     a {
-      color: #F4EDE8;
+      color: #f4ede8;
 
       text-decoration: none;
 
@@ -96,7 +98,7 @@ export default {
     justify-content: center;
     align-items: center;
 
-    color: #FF9000;
+    color: #ff9000;
 
     text-decoration: none;
 
@@ -118,5 +120,4 @@ export default {
   background: url('../assets/sign-in-background.png') no-repeat center;
   background-size: cover;
 }
-
 </style>
