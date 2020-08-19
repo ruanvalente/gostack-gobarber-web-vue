@@ -6,15 +6,9 @@
       <form @submit.prevent="doSignIn">
         <h1>Faça o seu logon</h1>
 
-        <InputApp
-          name="email"
-          type="text"
-          placeholder="E-mail" />
+        <InputApp v-model="signIn.email" name="email" type="text" placeholder="E-mail" />
 
-        <InputApp
-          name="password"
-          type="password"
-          placeholder="Password" />
+        <InputApp v-model="signIn.password" name="password" type="password" placeholder="Password" />
 
         <ButtonApp title="Entrar"></ButtonApp>
 
@@ -38,6 +32,12 @@ import { LogInIcon } from 'vue-feather-icons'
 
 export default {
   name: 'SignIn',
+  data: () => ({
+    signIn: {
+      email: '',
+      password: ''
+    }
+  }),
   components: {
     ButtonApp,
     InputApp,

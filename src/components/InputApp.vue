@@ -1,7 +1,5 @@
 <template>
-  <div
-    :style="{borderColor: borderInput}"
-  >
+  <div :style="{borderColor: borderInput}">
     <template v-if="name === 'email'">
       <mail-icon :style="{color: colorInput}" size="1.5x"></mail-icon>
     </template>
@@ -14,21 +12,24 @@
       <user-icon :style="{color: colorInput}" size="1.5x" class="custom-class"></user-icon>
     </template>
     <input
-      @focus="setFocused"
-      @blur="removeFocused"
+      @input="$emit('input', $event.target.value)"
+      @focus="setFocused('#ff9000')"
+      @blur="removeFocused('#ff9000')"
       ref="inputRef"
       :name="name"
       :type="type"
       :placeholder="placeholder"
+      :value="value"
     />
   </div>
 </template>
 
 <script>
 import { MailIcon, LockIcon, UserIcon } from 'vue-feather-icons'
+
 export default {
   name: 'InputApp',
-  props: ['name', 'type', 'placeholder'],
+  props: ['name', 'type', 'placeholder', 'value'],
   data () {
     return {
       borderInput: '',
@@ -41,12 +42,12 @@ export default {
     UserIcon
   },
   methods: {
-    setFocused () {
-      this.borderInput = '#ff9000'
+    setFocused (color) {
+      this.borderInput = color
     },
-    removeFocused () {
+    removeFocused (color) {
       if (this.$refs.inputRef.value.length > 0) {
-        this.colorInput = '#ff9000'
+        this.colorInput = color
       }
       this.borderInput = ''
     }
@@ -90,9 +91,8 @@ div {
     margin-right: 16px;
   }
 
-&:focus-within {
+  &:focus-within {
     color: #ff9000;
   }
 }
-
 </style>
